@@ -32,7 +32,7 @@ class Human
     attr_accessor :name
 
     def initialize(name, universe = Universe.common_universe)
-        @name, @universe = name, universe
+        @name, @universe, @energy = name, universe, 10
         @universe.add_player(self)
     end
 
@@ -71,6 +71,10 @@ class Human
 end
 
 class Warrior < Human
+    def initialize(name, universe = Universe.common_universe)
+        super(name, universe)
+        @energy = 50
+    end
 end
 
 class Wizard < Human
